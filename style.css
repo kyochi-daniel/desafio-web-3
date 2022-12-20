@@ -1,0 +1,274 @@
+:root {
+  /* COLORS */
+--grey-700: #4A4E69;
+--grey-400: #8E9AAF;
+--grey-200: #EFF1FF;
+--purple-800: #23053A;
+--pink-800: #CBC0D3;
+--pink-300: #FEEAFA;
+--white: #FFF;
+--shadow-tittle: #00000033;
+
+  /* FONTS */
+--font-palaquin: 'Palanquin', sans-serif;
+--font-staatliches: 'Staatliches', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--grey-200);
+  font-family: var(--font-staatliches);
+}
+
+.hide {
+  display: none;
+}
+
+header {
+  background: var(--grey-400);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+header img:nth-child(1), header img:nth-child(2) {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+header .tittle h1 {
+  background: var(--pink-800);
+  color: var(--white);
+  padding: 0.5rem 0;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px var(--shadow-tittle);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.875rem 0 3.75rem;
+}
+
+main .principal p {
+  font-family: var(--font-palaquin);
+  padding: 0 2.25rem;
+  text-align: center;
+  color: var(--purple-800);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.4rem;
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.125rem;
+}
+
+.card {
+  filter: brightness(.5);
+  animation: downtop 800ms;
+}
+
+.cards .card {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  transition: all .3s;
+}
+
+.cards div img {
+  border-radius: 1.25rem;
+}
+
+.card h2 {
+  color: var(--grey-700);
+  background: var(--pink-300);
+  border-radius: 1.25rem;
+  padding: 0.313rem 2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 1.25rem;
+  right: 0.75rem;
+  animation: topdown 900ms;
+}
+
+.card:hover {
+  filter: brightness(1.1);
+}
+
+.intro-desktop {
+  display: none;
+  font-family: var(--font-palaquin);
+  margin: 2rem auto 0;
+  color: var(--purple-800);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.4rem;
+  padding: 0 2rem;
+}
+
+footer {
+  display: none;
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  } 
+
+  100% {
+    opacity: 1;
+    transform: translateY(-15px);
+  } 
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  } 
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  } 
+}
+
+@media (min-width: 320px) {
+  .cards div:nth-child(3){
+    display: none;
+}
+
+  .cards div:nth-child(4){
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-areas: "A B"
+    "D B"
+    "D C"
+    "E F";
+    gap: 3.2rem;
+  }
+
+  .cards div:nth-child(1){
+      grid-area: A;
+  }
+
+  .cards div:nth-child(2){
+      grid-area: B;
+  }
+  .cards div:nth-child(3){
+      display: none;
+  }
+  .cards div:nth-child(4){
+      display: block;
+      grid-area: D;
+  }
+  .cards div:nth-child(5){
+      grid-area: C;
+  }
+  .cards div:nth-child(6){
+      display: none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    display: flex;
+  }
+  header {
+    width: 23.563rem;
+    height: 100vh;
+    position: fixed;
+  }
+  header img:nth-child(1){
+    display: none;
+  }
+  header img:nth-child(2){
+    display: block;
+  }
+  .intro-desktop {
+    display: block;
+  }
+  .principal p {
+    display: none;
+  }
+  .cards {
+    margin-left: 25.5rem;
+    grid-template-areas: 
+    'A B'
+    'C B'
+    'C D'
+    'E F';
+  }
+  .cards .card:nth-child(1) {
+    grid-area: A;
+  }
+
+  .cards .card:nth-child(2) {
+    grid-area: B;
+  }
+
+  .cards .card:nth-child(3) {
+    display: block;
+    grid-area: D;
+  }
+
+  .cards .card:nth-child(4) {
+    display: block;
+    grid-area: C;
+  }
+
+  .cards .card:nth-child(5) {
+    grid-area: E;
+  }
+
+  .cards .card:nth-child(6) {
+    display: block;
+    grid-area: F;
+  }
+}
+
+@media (min-width: 1280px) {
+  header {
+    height: 100vh;
+  }
+  .cards {
+    grid-template-areas: 
+    'A B C'
+    'D B E'
+    'D F E';
+  }
+  .cards .card:nth-child(1) {
+    grid-area: A;
+  }
+  .cards .card:nth-child(2) {
+    grid-area: B;
+  }
+  .cards .card:nth-child(3) {
+    grid-area: C;
+  }
+  .cards .card:nth-child(4) {
+    grid-area: D;
+  }
+  .cards .card:nth-child(5) {
+    grid-area: F;
+  }
+  .cards .card:nth-child(6) {
+    grid-area: E;
+  }
+}
